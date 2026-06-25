@@ -263,11 +263,13 @@ npm run preview
 
 **Ashish More**
 
-Bachelor of Engineering (Electronics and Telecommunication)
+Bachelor of Engineering 
 
 MERN Stack Developer
 
 GitHub: https://github.com/moreashish23
+
+Live Demo: https://employee-management-system-mern-pro.vercel.app
 
 ---
 
