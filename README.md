@@ -11,11 +11,8 @@ This project was developed as part of a MERN Stack Internship Assignment, follow
 **GitHub Repository:**
 `https://github.com/moreashish23/employee-management-system-mern-project
 
-**Live Frontend (Vercel):**
+**Live Demo :**
 `https://employee-management-system-mern-pro.vercel.app
-
-**Live Backend API (Render):**
-`https://employee-management-system-mern-project.onrender.com/health
 
 ---
 
@@ -135,7 +132,7 @@ employee-management-system/
 ## Clone Repository
 
 ```bash
-git clone https://github.com/<your-github-username>/employee-management-system.git
+git clone https://github.com/moreashish23/employee-management-system-mern-project
 
 cd employee-management-system
 ```
