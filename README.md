@@ -1,85 +1,85 @@
 # Employee Management System (MERN)
 
-## Overview
+A full-stack Employee Management System built using the MERN Stack (MongoDB, Express.js, React, and Node.js). The application provides secure user authentication and complete employee management functionality through a responsive and modern user interface.
 
-The Employee Management System is a full-stack web application built using the MERN stack. It allows authenticated users to manage employee records through a secure and responsive interface. The application includes user authentication, employee CRUD operations, search, filtering, sorting, pagination, and dashboard analytics.
-
-This project was developed as part of a MERN Stack internship assignment following modern development practices and a modular project structure.
+This project was developed as part of a MERN Stack Internship Assignment, following clean architecture, REST API principles, and modern development practices.
 
 ---
 
-## Features
+## Repository
 
-### Authentication
+**GitHub Repository:**
+`https://github.com/moreashish23/employee-management-system-mern-project
+
+**Live Frontend (Vercel):**
+`https://employee-management-system-mern-pro.vercel.app
+
+**Live Backend API (Render):**
+`https://employee-management-system-mern-project.onrender.com/health
+
+---
+
+# Features
+
+## Authentication
 
 * User Registration
 * User Login
 * JWT Authentication
 * Protected Routes
-* Automatic Token Management
-* Auto Logout on Unauthorized Access
+* Persistent Login
+* Automatic Logout on Unauthorized Requests
 
-### Employee Management
+## Employee Management
 
-* Create Employee
+* Add Employee
 * View Employee Details
 * Update Employee
 * Delete Employee
-* Department-wise Employee Management
 
-### Additional Features
+Each employee record includes:
 
+* Full Name
+* Email
+* Mobile Number
+* Department
+* Designation
+* Joining Date
+
+## Additional Features
+
+* Dashboard Overview
 * Search Employees
-* Filter by Department
-* Sort by Multiple Fields
+* Department Filter
+* Sorting
 * Pagination
-* Dashboard Statistics
-* Recent Employees
-* Department Distribution
+* Department Statistics
 * Responsive Design
-* Toast Notifications
 * Skeleton Loading
+* Toast Notifications
 * Delete Confirmation Modal
 
 ---
 
-## Tech Stack
+# Tech Stack
 
-### Frontend
-
-* React 18
-* TypeScript
-* Vite
-* Tailwind CSS
-* Redux Toolkit
-* React Router DOM
-* React Hook Form
-* Axios
-* React Toastify
-* React Icons
-
-### Backend
-
-* Node.js
-* Express.js
-* MongoDB Atlas
-* Mongoose
-* JWT Authentication
-* bcryptjs
-* Express Validator
-* Helmet
-* CORS
-* Express Rate Limit
-
-### Deployment
-
-* Frontend: Vercel
-* Backend: Render
-* Database: MongoDB Atlas
+| Layer            | Technology                               |
+| ---------------- | ---------------------------------------- |
+| Frontend         | React 18, TypeScript, Vite, Tailwind CSS |
+| State Management | Redux Toolkit, React Redux               |
+| Forms            | React Hook Form                          |
+| Routing          | React Router DOM                         |
+| HTTP Client      | Axios                                    |
+| Backend          | Node.js, Express.js                      |
+| Database         | MongoDB Atlas, Mongoose                  |
+| Authentication   | JWT, bcryptjs                            |
+| Validation       | express-validator                        |
+| Security         | Helmet, CORS, Express Rate Limit         |
+| Deployment       | Vercel, Render                           |
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```text
 employee-management-system/
@@ -92,18 +92,17 @@ employee-management-system/
 │   │   ├── models/
 │   │   ├── routes/
 │   │   ├── services/
-│   │   ├── validators/
 │   │   ├── utils/
+│   │   ├── validators/
 │   │   └── app.js
 │   ├── server.js
 │   ├── package.json
-│   └── .env
+│   └── .env.example
 │
 ├── frontend/
 │   ├── src/
 │   │   ├── api/
 │   │   ├── app/
-│   │   ├── assets/
 │   │   ├── components/
 │   │   ├── features/
 │   │   ├── hooks/
@@ -116,30 +115,42 @@ employee-management-system/
 │   ├── vercel.json
 │   └── .env
 │
-└── README.md
+├── README.md
+├── API_DOCUMENTATION.md
+└── DEPLOYMENT.md
 ```
 
 ---
 
-## Installation
+# Getting Started
 
-### Clone Repository
+## Prerequisites
+
+* Node.js v20 or later
+* npm
+* MongoDB Atlas Account
+
+---
+
+## Clone Repository
 
 ```bash
-git clone https://github.com/moreashish23/employee-management-system-mern-project
-cd employee-management-system-mern-project
+git clone https://github.com/<your-github-username>/employee-management-system.git
+
+cd employee-management-system
 ```
 
 ---
 
-## Backend Setup
+# Backend Setup
 
 ```bash
 cd backend
+
 npm install
 ```
 
-Create a `.env` file.
+Create a `.env` file inside the backend folder.
 
 ```env
 PORT=5000
@@ -149,13 +160,13 @@ JWT_SECRET=your_jwt_secret
 JWT_EXPIRES_IN=7d
 ```
 
-Run the backend:
+Run the backend.
 
 ```bash
 npm run dev
 ```
 
-Backend URL:
+Backend runs on:
 
 ```text
 http://localhost:5000
@@ -163,7 +174,7 @@ http://localhost:5000
 
 ---
 
-## Frontend Setup
+# Frontend Setup
 
 ```bash
 cd frontend
@@ -178,13 +189,13 @@ VITE_API_BASE_URL=/api
 VITE_APP_NAME=Employee Management System
 ```
 
-Run the frontend:
+Run the frontend.
 
 ```bash
 npm run dev
 ```
 
-Frontend URL:
+Frontend runs on:
 
 ```text
 http://localhost:5173
@@ -192,87 +203,177 @@ http://localhost:5173
 
 ---
 
-## API Endpoints
+# Environment Variables
 
-### Authentication
+## Backend
 
-| Method | Endpoint           |
-| ------ | ------------------ |
-| POST   | /api/auth/register |
-| POST   | /api/auth/login    |
-| GET    | /api/auth/me       |
+| Variable       | Description                     |
+| -------------- | ------------------------------- |
+| PORT           | Backend server port             |
+| NODE_ENV       | Development or Production       |
+| MONGO_URI      | MongoDB Atlas connection string |
+| JWT_SECRET     | Secret key for JWT              |
+| JWT_EXPIRES_IN | Token expiration time           |
 
-### Employees
+## Frontend
 
-| Method | Endpoint           |
-| ------ | ------------------ |
-| GET    | /api/employees     |
-| POST   | /api/employees     |
-| GET    | /api/employees/:id |
-| PUT    | /api/employees/:id |
-| DELETE | /api/employees/:id |
+| Variable          | Description      |
+| ----------------- | ---------------- |
+| VITE_API_BASE_URL | Backend API URL  |
+| VITE_APP_NAME     | Application Name |
 
----
+For local development:
 
-## Available Scripts
-
-### Backend
-
-```bash
-npm run dev
-npm start
+```env
+VITE_API_BASE_URL=/api
 ```
 
-### Frontend
+For production (Vercel):
 
-```bash
-npm run dev
-npm run build
-npm run preview
+```env
+VITE_API_BASE_URL=https://employee-management-system-mern-project.onrender.com/api
 ```
 
 ---
 
-## Deployment
+# API Documentation
 
-### Backend
+The application exposes RESTful APIs for authentication and employee management.
 
-* Platform: Render
+## Authentication
 
-### Frontend
+| Method | Endpoint             |
+| ------ | -------------------- |
+| POST   | `/api/auth/register` |
+| POST   | `/api/auth/login`    |
+| GET    | `/api/auth/me`       |
 
-* Platform: Vercel
+## Employees
 
-### Database
+| Method | Endpoint             |
+| ------ | -------------------- |
+| GET    | `/api/employees`     |
+| POST   | `/api/employees`     |
+| GET    | `/api/employees/:id` |
+| PUT    | `/api/employees/:id` |
+| DELETE | `/api/employees/:id` |
 
-* MongoDB Atlas
+Detailed API documentation is available in:
+
+```text
+API_DOCUMENTATION.md
+```
 
 ---
 
-## Future Improvements
+# Database Design
 
-* Employee Profile Image Upload
-* Export Employees to Excel/PDF
-* Advanced Dashboard Analytics
-* Email Notifications
-* Audit Logs
+The application uses MongoDB Atlas with two primary collections:
+
+## User
+
+* Name
+* Email
+* Password (Hashed)
+* Created At
+* Updated At
+
+## Employee
+
+* Full Name
+* Email
+* Mobile Number
+* Department
+* Designation
+* Joining Date
+* Created By
+* Created At
+* Updated At
 
 ---
 
-## Author
+# Authentication
+
+Authentication is implemented using JSON Web Tokens (JWT).
+
+Workflow:
+
+1. User registers or logs in.
+2. Backend generates a JWT.
+3. Frontend stores the token.
+4. Axios automatically sends the token in the Authorization header.
+5. Protected routes verify the token before granting access.
+6. Invalid or expired tokens automatically log the user out.
+
+---
+
+# Deployment
+
+## Backend
+
+Platform: **Render**
+
+Configuration:
+
+* Root Directory: `backend`
+* Build Command: `npm install`
+* Start Command: `npm start`
+
+Required Environment Variables:
+
+* PORT
+* NODE_ENV
+* MONGO_URI
+* JWT_SECRET
+* JWT_EXPIRES_IN
+
+---
+
+## Frontend
+
+Platform: **Vercel**
+
+Configuration:
+
+* Root Directory: `frontend`
+* Framework Preset: Vite
+* Build Command: `npm run build`
+* Output Directory: `dist`
+
+Environment Variable:
+
+```env
+VITE_API_BASE_URL= https://employee-management-system-mern-project.onrender.com/api
+```
+
+The frontend uses `vercel.json` to support React Router routing.
+
+---
+
+# Evaluation Criteria Mapping
+
+This project satisfies the assignment requirements:
+
+* Clean and modular code structure
+* RESTful API design
+* MongoDB database design using Mongoose
+* JWT-based authentication and authorization
+* Responsive React user interface
+* Employee CRUD functionality
+* Search, filter, sorting, and pagination
+* Form validation
+* Secure backend implementation
+* Professional Git commit history
+* Deployment on Render and Vercel
+
+---
+
+# Author
 
 **Ashish More**
 
-Bachelor of Engineering 
+Bachelor of Engineering
 
 MERN Stack Developer
 
 GitHub: https://github.com/moreashish23
-
-Live Demo: https://employee-management-system-mern-pro.vercel.app
-
----
-
-## License
-
-This project was developed for educational and internship assignment purposes.
