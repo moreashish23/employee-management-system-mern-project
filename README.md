@@ -1,290 +1,276 @@
-# Employee Management System (EMS)
+# Employee Management System (MERN)
 
-A full-stack Employee Management System built with the **MERN Stack** — MongoDB Atlas, Express.js, React 18 + TypeScript, and Node.js. Built as an internship assignment demonstrating production-ready architecture.
+## Overview
+
+The Employee Management System is a full-stack web application built using the MERN stack. It allows authenticated users to manage employee records through a secure and responsive interface. The application includes user authentication, employee CRUD operations, search, filtering, sorting, pagination, and dashboard analytics.
+
+This project was developed as part of a MERN Stack internship assignment following modern development practices and a modular project structure.
 
 ---
 
 ## Features
 
 ### Authentication
-- User registration with password validation
-- User login with JWT authentication
-- Protected routes (frontend + backend)
-- Auto token injection via Axios interceptors
-- Auto logout on token expiry (401 interceptor)
+
+* User Registration
+* User Login
+* JWT Authentication
+* Protected Routes
+* Automatic Token Management
+* Auto Logout on Unauthorized Access
 
 ### Employee Management
-- Add, view, edit, and delete employees
-- Fields: Full Name, Email, Mobile, Department, Designation, Joining Date
-- Department colour-coded badges
 
-### Advanced Features
-- **Pagination** — configurable page size
-- **Search** — by name, email, or designation
-- **Filter** — by department
-- **Sort** — by any column, ascending or descending
-- **Dashboard** — stats cards, department breakdown chart, recent joiners
-- **Skeleton loaders** — smooth loading experience
-- **Toast notifications** — all actions give feedback
-- **Delete confirmation modal** — prevents accidental deletes
-- **Responsive** — works on mobile, tablet, and desktop
+* Create Employee
+* View Employee Details
+* Update Employee
+* Delete Employee
+* Department-wise Employee Management
+
+### Additional Features
+
+* Search Employees
+* Filter by Department
+* Sort by Multiple Fields
+* Pagination
+* Dashboard Statistics
+* Recent Employees
+* Department Distribution
+* Responsive Design
+* Toast Notifications
+* Skeleton Loading
+* Delete Confirmation Modal
 
 ---
 
 ## Tech Stack
 
-| Layer     | Technology                                          |
-|-----------|-----------------------------------------------------|
-| Frontend  | React 18, TypeScript, Vite, Tailwind CSS v3        |
-| State     | Redux Toolkit, React Redux                          |
-| Forms     | React Hook Form                                     |
-| Routing   | React Router DOM v6                                 |
-| HTTP      | Axios                                               |
-| UI        | React Icons, React Toastify                         |
-| Backend   | Node.js v20, Express.js                             |
-| Database  | MongoDB Atlas, Mongoose                             |
-| Auth      | JWT (jsonwebtoken), bcryptjs                        |
-| Validation| express-validator                                   |
-| Security  | helmet, express-rate-limit, cors                    |
-| Dev Tools | nodemon, Vite HMR                                   |
-| Container | Docker, Docker Compose, Nginx                       |
+### Frontend
+
+* React 18
+* TypeScript
+* Vite
+* Tailwind CSS
+* Redux Toolkit
+* React Router DOM
+* React Hook Form
+* Axios
+* React Toastify
+* React Icons
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB Atlas
+* Mongoose
+* JWT Authentication
+* bcryptjs
+* Express Validator
+* Helmet
+* CORS
+* Express Rate Limit
+
+### Deployment
+
+* Frontend: Vercel
+* Backend: Render
+* Database: MongoDB Atlas
 
 ---
 
 ## Project Structure
 
-```
+```text
 employee-management-system/
+│
 ├── backend/
 │   ├── src/
-│   │   ├── config/          # MongoDB connection
-│   │   ├── controllers/     # Request handlers
-│   │   ├── middleware/      # Auth + error middleware
-│   │   ├── models/          # Mongoose schemas
-│   │   ├── routes/          # Express routers
-│   │   ├── services/        # Business logic
-│   │   ├── utils/           # Helpers (token, ApiResponse)
-│   │   ├── validators/      # express-validator chains
-│   │   └── app.js           # Express app setup
-│   ├── server.js            # Entry point
-│   ├── .env.example
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── validators/
+│   │   ├── utils/
+│   │   └── app.js
+│   ├── server.js
 │   ├── package.json
-│   └── Dockerfile
+│   └── .env
+│
 ├── frontend/
 │   ├── src/
-│   │   ├── api/             # Axios instance + API calls
-│   │   ├── app/             # Redux store
-│   │   ├── components/      # Reusable UI components
-│   │   ├── features/        # Redux slices (auth, employees)
-│   │   ├── hooks/           # Custom hooks
-│   │   ├── pages/           # Route-level page components
-│   │   ├── routes/          # AppRouter + ProtectedRoute
-│   │   ├── types/           # TypeScript interfaces
-│   │   └── utils/           # Formatters, token helpers
-│   ├── index.html
+│   │   ├── api/
+│   │   ├── app/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── features/
+│   │   ├── hooks/
+│   │   ├── pages/
+│   │   ├── routes/
+│   │   ├── types/
+│   │   └── utils/
 │   ├── package.json
 │   ├── vite.config.ts
-│   ├── tailwind.config.js
-│   └── Dockerfile
-├── docker-compose.yml
-├── README.md
-├── API_DOCUMENTATION.md
-└── DEPLOYMENT.md
+│   ├── vercel.json
+│   └── .env
+│
+└── README.md
 ```
 
 ---
 
-## Prerequisites
+## Installation
 
-| Tool       | Minimum Version |
-|------------|-----------------|
-| Node.js    | v20.x           |
-| npm        | v9.x            |
-| Docker     | v24.x           |
-| Docker Compose | v2.x        |
-| MongoDB Atlas | Free tier    |
-
----
-
-## Local Development Setup
-
-### 1. Clone the repository
+### Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/employee-management-system.git
-cd employee-management-system
+git clone https://github.com/moreashish23/employee-management-system-mern-project
+cd employee-management-system-mern-project
 ```
 
-### 2. Configure backend environment
+---
+
+## Backend Setup
 
 ```bash
 cd backend
-cp .env.example .env
+npm install
 ```
 
-Edit `.env` and fill in your values:
+Create a `.env` file.
 
 ```env
 PORT=5000
 NODE_ENV=development
-MONGO_URI=mongodb+srv://<user>:<password>@cluster0.xxxxx.mongodb.net/employee_management?retryWrites=true&w=majority
-JWT_SECRET=yourSuperSecretKey_min32chars
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 JWT_EXPIRES_IN=7d
-RATE_LIMIT_WINDOW_MS=900000
-RATE_LIMIT_MAX=100
 ```
 
-### 3. Install and run the backend
+Run the backend:
 
 ```bash
-# Still inside backend/
-npm install
 npm run dev
 ```
 
-The API will be available at `http://localhost:5000`.  
-Health check: `http://localhost:5000/health`
+Backend URL:
 
-### 4. Install and run the frontend
+```text
+http://localhost:5000
+```
+
+---
+
+## Frontend Setup
 
 ```bash
-# Open a new terminal
 cd frontend
+
 npm install
+```
+
+Create a `.env` file.
+
+```env
+VITE_API_BASE_URL=/api
+VITE_APP_NAME=Employee Management System
+```
+
+Run the frontend:
+
+```bash
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`.
+Frontend URL:
 
-> The Vite dev server proxies all `/api/*` requests to `http://localhost:5000` automatically.
-
----
-
-## Environment Variables Reference
-
-### Backend (`backend/.env`)
-
-| Variable              | Required | Default     | Description                          |
-|-----------------------|----------|-------------|--------------------------------------|
-| `PORT`                | No       | `5000`      | Express server port                  |
-| `NODE_ENV`            | No       | `development` | Environment (`development`/`production`) |
-| `MONGO_URI`           | **Yes**  | —           | MongoDB Atlas connection string      |
-| `JWT_SECRET`          | **Yes**  | —           | Secret key for JWT signing (min 32 chars) |
-| `JWT_EXPIRES_IN`      | No       | `7d`        | JWT expiry duration                  |
-| `RATE_LIMIT_WINDOW_MS`| No       | `900000`    | Rate limit window in ms (15 min)     |
-| `RATE_LIMIT_MAX`      | No       | `100`       | Max requests per window per IP       |
-
----
-
-## MongoDB Atlas Setup
-
-1. Visit [https://cloud.mongodb.com](https://cloud.mongodb.com)
-2. Create a **free M0 cluster**
-3. Under **Database Access** → Add user with **Atlas admin** role
-4. Under **Network Access** → Add `0.0.0.0/0` (development) or your server IP (production)
-5. Click **Connect** → **Connect your application** → copy the URI
-6. Replace `<username>` and `<password>` in your `.env`
-
----
-
-## Docker Setup
-
-### Build and run with Docker Compose
-
-```bash
-# From the root directory
-docker-compose up --build
-```
-
-| Service   | URL                       |
-|-----------|---------------------------|
-| Frontend  | http://localhost          |
-| Backend   | http://localhost:5000     |
-| API Health| http://localhost:5000/health |
-
-### Stop containers
-
-```bash
-docker-compose down
-```
-
-### Rebuild after code changes
-
-```bash
-docker-compose up --build --force-recreate
-```
-
-### View logs
-
-```bash
-# All services
-docker-compose logs -f
-
-# Backend only
-docker-compose logs -f backend
-
-# Frontend only
-docker-compose logs -f frontend
+```text
+http://localhost:5173
 ```
 
 ---
 
-## Available API Endpoints
+## API Endpoints
 
-| Method | Endpoint                  | Auth | Description              |
-|--------|---------------------------|------|--------------------------|
-| GET    | `/health`                 | No   | Health check             |
-| POST   | `/api/auth/register`      | No   | Register user            |
-| POST   | `/api/auth/login`         | No   | Login user               |
-| GET    | `/api/auth/me`            | Yes  | Get current user profile |
-| GET    | `/api/employees`          | Yes  | List employees (with pagination, search, sort, filter) |
-| POST   | `/api/employees`          | Yes  | Create employee          |
-| GET    | `/api/employees/:id`      | Yes  | Get one employee         |
-| PUT    | `/api/employees/:id`      | Yes  | Update employee          |
-| DELETE | `/api/employees/:id`      | Yes  | Delete employee          |
+### Authentication
 
-Full API documentation: [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
+| Method | Endpoint           |
+| ------ | ------------------ |
+| POST   | /api/auth/register |
+| POST   | /api/auth/login    |
+| GET    | /api/auth/me       |
+
+### Employees
+
+| Method | Endpoint           |
+| ------ | ------------------ |
+| GET    | /api/employees     |
+| POST   | /api/employees     |
+| GET    | /api/employees/:id |
+| PUT    | /api/employees/:id |
+| DELETE | /api/employees/:id |
 
 ---
 
-## Scripts Reference
+## Available Scripts
 
 ### Backend
 
-| Command       | Description                 |
-|---------------|-----------------------------|
-| `npm run dev` | Start with nodemon (hot reload) |
-| `npm start`   | Start production server     |
+```bash
+npm run dev
+npm start
+```
 
 ### Frontend
 
-| Command         | Description              |
-|-----------------|--------------------------|
-| `npm run dev`   | Start Vite dev server    |
-| `npm run build` | Build for production     |
-| `npm run preview` | Preview production build |
+```bash
+npm run dev
+npm run build
+npm run preview
+```
 
 ---
 
-## Git Commit Conventions
+## Deployment
 
-```
-feat:     New feature
-fix:      Bug fix
-refactor: Code refactor (no feature/bug change)
-style:    Formatting, no logic change
-docs:     Documentation changes
-chore:    Build, dependencies, config
-```
+### Backend
+
+* Platform: Render
+
+### Frontend
+
+* Platform: Vercel
+
+### Database
+
+* MongoDB Atlas
+
+---
+
+## Future Improvements
+
+* Employee Profile Image Upload
+* Export Employees to Excel/PDF
+* Advanced Dashboard Analytics
+* Email Notifications
+* Audit Logs
 
 ---
 
 ## Author
 
-Built for the MERN Stack Internship Assignment.
+**Ashish More**
+
+Bachelor of Engineering (Electronics and Telecommunication)
+
+MERN Stack Developer
+
+GitHub: https://github.com/moreashish23
 
 ---
 
 ## License
 
-MIT
+This project was developed for educational and internship assignment purposes.
